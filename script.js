@@ -1,3 +1,6 @@
+const op = document.getElementById('op');
+const startBut = document.getElementById('startBut');
+const main = document.querySelector('.main');
 const scoreMessage = document.querySelector('.game-rule');
 const scoreRule = document.querySelector('.score-rule');
 const playerImg = document.getElementById('playerImg');
@@ -12,15 +15,18 @@ const notiMsg = document.getElementById('noti-msg');
 const overlay = document.getElementById('overlay');
 const restartBut = document.getElementById('restartBut');
 
+
 let playerscore = 0;
 let computerscore = 0;
 let roundWinner = '';
 
+
+startBut.addEventListener('click', startGame);
 rockBut.addEventListener('click', () => handleClick('ROCK'));
 paperBut.addEventListener('click', () => handleClick('PAPER'));
 scissorBut.addEventListener('click', () => handleClick('SCISSORS'));
 restartBut.addEventListener('click', restartGame);
-overlay.addEventListener('click', closeNoti)
+overlay.addEventListener('click', closeNoti);
 
 
 function playRound(playerChoice, computerChoice) {
@@ -108,4 +114,9 @@ function restartGame() {
     playerScore.textContent = 'Player: 0';
     computerScore.textContent = 'Computer: 0';
     closeNoti();
+}
+
+function startGame() {
+    op.style.display = 'none';
+    main.style.display = 'block';
 }
